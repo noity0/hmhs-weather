@@ -1,0 +1,10 @@
+{
+  "name": "Live Weather Detector",
+  "description": "Real-time weather detector and intelligence app with live geolocation tracking, interactive radar map, air quality metrics, 10-day forecast, and Gemini AI weather advisor.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
