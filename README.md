@@ -1,78 +1,125 @@
-# 🌦️ HMHS Weather — Live Weather Intelligence
+# HMHS Weather — Weather Forecasts, Radar & AI Insights
 
-> Real-time weather, radar, air-quality, forecasts, location tracking, and AI-assisted weather insights in one responsive web app.
+[![GitHub stars](https://img.shields.io/github/stars/noity0/hmhs-weather?style=flat-square)](https://github.com/noity0/hmhs-weather/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/noity0/hmhs-weather?style=flat-square)](https://github.com/noity0/hmhs-weather/issues)
+[![Last commit](https://img.shields.io/github/last-commit/noity0/hmhs-weather?style=flat-square)](https://github.com/noity0/hmhs-weather/commits/main)
 
-[![AI](https://img.shields.io/badge/AI-Gemini-blue)](https://ai.google.dev/) [![React](https://img.shields.io/badge/React-19-61dafb)](https://react.dev/) [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6)](https://www.typescriptlang.org/) [![Maps](https://img.shields.io/badge/Maps-Leaflet-green)](https://leafletjs.com/)
+> A responsive weather dashboard exploring current conditions, forecasts, map layers, air-quality information, saved locations, and AI-generated summaries.
 
-## 🌍 Overview
+HMHS Weather is a React and TypeScript weather application with an Express backend. The project combines location-aware weather views, map visualizations, and optional Gemini-powered explanations.
 
-HMHS Weather is a live weather intelligence interface with browser geolocation, interactive radar mapping, hourly and multi-day forecasts, air-quality metrics, weather comparison, and a Gemini AI advisor.
+## Features
 
-### ✨ Features
+- Browser geolocation for local weather lookup.
+- Current conditions and forecast views.
+- Hourly and multi-day forecast presentation.
+- Interactive map and weather-layer interface.
+- Wind and atmospheric information.
+- Air-quality information where provider data is available.
+- Saved or compared locations.
+- Gemini-assisted explanations and weather summaries.
+- Metric and imperial unit presentation.
 
-- 📍 Live browser GPS location detection
-- 🌧️ Interactive weather/radar map
-- ⏱️ Hourly forecast and extended forecast views
-- 🌬️ Wind and atmospheric metrics
-- 🫁 Air-quality information
-- 🤖 Gemini AI weather advisor
-- 🔄 Weather comparison between locations
-- ⭐ Saved favorite locations
-- 🌙 Celestial/astronomy information
-- 🌐 Metric and imperial units
+Weather information depends on the configured data provider, location coverage, network availability, and provider update schedule. AI-generated summaries are informational and can be wrong; check official local weather alerts for safety-critical decisions.
 
-## 🏗️ Architecture
+## Data flow
 
 ```text
-Browser GPS
-    ↓
-Location + Weather Services
-    ↓
-Weather Data Model
-    ├── Radar / Map
-    ├── Forecast
-    ├── Air Quality
-    └── Gemini AI Insights
+Location search / browser GPS
+             |
+             v
+       Weather services
+             |
+             v
+       Weather data model
+        |      |      |
+     Forecast Map   Air quality
+             |
+             v
+       Optional AI summary
 ```
 
-## 🛠️ Tech Stack
+## Technology stack
 
-- React 19 + TypeScript
-- Vite
+- React 19, TypeScript, and Vite 6
 - Leaflet
-- Express + Node.js
-- Open-Meteo weather services
-- Google Gemini via `@google/genai`
-- Tailwind CSS, Motion, Lucide React
+- Node.js and Express
+- Weather data service integration
+- Google Gemini SDK (`@google/genai`)
+- Tailwind CSS, Motion, and Lucide React
 
-## 🚀 Run locally
+## Requirements
 
-```bash
+- Node.js 22 LTS recommended
+- npm
+- Modern browser
+- Location permission for GPS-based lookup
+- Gemini API key for AI-assisted features
+
+## Install on Windows
+
+```powershell
+git clone https://github.com/noity0/hmhs-weather.git
+Set-Location hmhs-weather
 npm install
+```
+
+Create a local environment file:
+
+```powershell
+Copy-Item .env.example .env
+notepad .env
+```
+
+Add your own key:
+
+```dotenv
+GEMINI_API_KEY=your_gemini_api_key
+APP_URL=http://localhost:3000
+```
+
+Do not commit API keys or other secrets.
+
+## Start and build
+
+```powershell
 npm run dev
 ```
 
-Production:
+Production build:
 
-```bash
+```powershell
 npm run build
 npm start
 ```
 
-The app requests browser geolocation permission for live-location weather. Configure any required API credentials through environment variables and keep secrets out of Git.
+## Available scripts
 
-## 🔎 Discoverability
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Express/TypeScript development server |
+| `npm run build` | Build the Vite frontend and bundle the server |
+| `npm start` | Start the built server |
+| `npm run lint` | Run TypeScript checks |
 
-Relevant topics/search terms:
+## Use and safety notes
 
-`weather-app` `live-weather` `weather-api` `weather-radar` `forecast` `air-quality` `geolocation` `leaflet` `open-meteo` `gemini-ai` `ai-weather` `react` `typescript` `vite` `express` `tailwindcss` `hmhs`
+- Allow location access only when you want location-based weather.
+- Check local meteorological authorities for official warnings and emergency instructions.
+- Weather and air-quality data can be delayed, incomplete, or unavailable for some regions.
+- Review third-party data-provider terms and limits before deploying publicly.
 
-If you find it useful, **⭐ star the repository**, share it with weather/data/AI developers, and contribute improvements through genuine issues and pull requests.
+## Contributing
 
-## 👤 Author
+Useful contributions include accessibility improvements, clearer units, robust loading/error states, tests, and documentation. Include reproducible steps when reporting a problem.
 
-**Hafiz Mohammed Huzaifa Shamim (HMHS)**
+- [Issues](https://github.com/noity0/hmhs-weather/issues)
+- [Source code](https://github.com/noity0/hmhs-weather)
 
-## 📄 License
+## License
 
-See the repository license for usage terms.
+See the repository's `LICENSE` file if present. If no license is included, reuse and redistribution are not automatically permitted.
+
+## Search terms
+
+Weather app, weather forecast, live weather dashboard, weather radar, air quality, weather map, geolocation, Leaflet, Gemini AI, React, TypeScript, HMHS Weather.
